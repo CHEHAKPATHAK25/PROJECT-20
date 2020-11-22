@@ -1,0 +1,31 @@
+var dolly, wall;
+var weight, speed;
+
+function setup() {
+    createCanvas(1600, 400);
+
+    dolly=createSprite(800,100,50,50);
+    wall=createSprite(1500,150,100,30);
+}
+
+function draw () {
+    speed=random(0,100);
+    weight=random(500,1500);
+    car.VelocityX=speed;
+}
+
+fnction deformation() {
+    if (wall.x - dolly.x < wall.width/2 + car.width/2) {
+        car.VelocityX=0;
+        var deformation= 0.5*wight*speed*speed/22500;
+        if (deformation > 180) {
+            car.shapeColor=color(255,0,0);
+        }
+        if (deformation < 180 && deformation > 100) {
+            car.shapeColor=color(220,230,0);
+        }
+        if (deformation < 100) {
+            car.shapeColor=color(0,255,0);
+        }
+    }
+}
